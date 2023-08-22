@@ -14,9 +14,39 @@ function App() {
     setContacts(newArray)
 
   }
+  function handlePopularity() {
+    console.log('Popularity check');
+    const newArray = [...contacts.sort(function (a, b) {
+      console.log(a.popularity, b.popularity);
+      if (a.popularity < b.popularity) {
+        return 1;
+      }
+      if (a.popularity > b.popularity) {
+        return -1;
+      }
+      return 0;
+    })]
+    console.log(newArray);
+    setContacts(newArray)
+  }
+
+  function handleName(){
+    console.log('Name check');
+    const newArray = [...contacts.sort(function(a, b){
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    })]
+    setContacts(newArray)
+  }
+
   function handleDelete(contactsId) {
     console.log(contactsId);
-    const removedArray = contacts.filter((contact)=>{
+    const removedArray = contacts.filter((contact) => {
       return contact.id !== contactsId;
     })
     setContacts(removedArray)
@@ -26,8 +56,8 @@ function App() {
     <div>
       <h1>IronContacts</h1>
       <button onClick={() => handleRandom()}>Add Random Contact</button>
-      {/* <button onClick={() =>}>Sort by Popularity</button>
-      <button onClick={() =>}>Sort by Name</button> */}
+      <button onClick={() => handlePopularity()}>Sort by Popularity</button>
+      <button onClick={() =>handleName()}>Sort by Name</button>
       <table>
         <tr>
           <th>Picture</th>
