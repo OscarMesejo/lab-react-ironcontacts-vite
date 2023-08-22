@@ -4,7 +4,7 @@ import contactsArray from "./contacts.json";
 
 function App() {
 
-  const fiveContacts = contactsArray.slice(0,5);
+  const fiveContacts = contactsArray.slice(5,10);
   const [contacts, setContacts] = useState(fiveContacts);
   
 
@@ -25,8 +25,14 @@ function App() {
           <td><img src={contactsArray.pictureUrl} width="100px"alt="" /></td>
           <td>{contactsArray.name}</td>
           <td>{contactsArray.popularity}</td>
-
-          {contacts.hasOscar ? <p>:trophy:</p> : <p></p>}
+          <td>
+          {contactsArray.wonOscar && <p>🏆</p>}
+          {!contactsArray.wonOscar && <p></p>}
+          </td>
+          <td>
+          {contactsArray.wonEmmy && <p>⭐</p>}
+          {!contactsArray.wonEmmy && <p></p>}
+          </td>
         </tr>
         ))}
         
