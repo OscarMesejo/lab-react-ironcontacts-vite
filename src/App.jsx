@@ -4,13 +4,19 @@ import contactsArray from "./contacts.json";
 
 function App() {
 
-  const fiveContacts = contactsArray.slice(5,10);
+  const fiveContacts = contactsArray.slice(0,5);
   const [contacts, setContacts] = useState(fiveContacts);
   
-
+  function handleClick (){
+    console.log('This is working');
+    //create a new array with the contacts I already have and add a random one
+    const newAray= [...contacts,contactsArray[Math.floor(Math.random() * contactsArray.length)] ]
+    setContacts(newAray)
+  }
   return (
     <div>
       <h1>IronContacts</h1>
+      <button onClick={()=> handleClick()}>Add Random Contact</button>
       <table>
         <tr>
           <th>Picture</th>
