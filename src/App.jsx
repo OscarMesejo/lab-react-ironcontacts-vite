@@ -7,6 +7,8 @@ function App() {
   const fiveContacts = contactsArray.slice(0, 5);
   const [contacts, setContacts] = useState(fiveContacts);
 
+  // simplifying code: const [contacts, setContacts] = useState(contactsArray.slice(0, 5));
+
   function handleRandom() {
     console.log('This is working');
     //create a new array with the contacts I already have and add a random one
